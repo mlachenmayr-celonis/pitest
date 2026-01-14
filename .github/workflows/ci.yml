@@ -23,16 +23,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout from Git'
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - name: 'Set up JDK ${{ matrix.java }}'
-        uses: actions/setup-java@5d7b214878a63ef0089e24024c084e31e5066927 # v4.5.0
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4.8.0
         with:
           java-version: ${{ matrix.java }}
           distribution: temurin
       - name: 'Display JDK version'
         run: java -version
       - name: Cache local Maven repository
-        uses: actions/cache@d4323d4df104b026a6e5435f29a0af381010bb5a # v4.2.0
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
