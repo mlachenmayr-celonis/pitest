@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  * Base class to perform donkey work for interceptors that compute excluded regions per method
  */
 public abstract class RegionInterceptor implements MutationInterceptor {
-    private ClassTree currentClass;
+    protected ClassTree currentClass;
     private Map<MethodTree, List<RegionIndex>> cache;
 
     @Override
@@ -40,7 +40,6 @@ public abstract class RegionInterceptor implements MutationInterceptor {
                 .filter(buildPredicate().negate())
                 .collect(Collectors.toList());
     }
-
 
     protected Predicate<MutationDetails> buildPredicate() {
         return a -> {
